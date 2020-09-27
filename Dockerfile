@@ -18,5 +18,5 @@ RUN Rscript -e 'install.packages("httr", verbose=FALSE, quiet=TRUE)'
 RUN Rscript -e 'install.packages("httpuv", verbose=FALSE, quiet=TRUE)'
 RUN Rscript -e 'install.packages("jsonlite", verbose=FALSE, quiet=TRUE)'
 RUN Rscript -e 'install.packages("tidyverse", verbose=FALSE, quiet=TRUE)'
-CMD ["ifconfig -a"]
-CMD ["Rscript", "MailReaderBatch.R"]
+RUN Rscript -e 'install.packages("lubridate", verbose=FALSE, quiet=TRUE)'
+CMD ["Rscript", "AutoAssignBatch.R"]

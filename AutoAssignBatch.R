@@ -1,10 +1,4 @@
 #auto assign batch.R
-load(paste("C:\\Users\\",Sys.getenv("USERNAME"), "\\OneDrive - EFSA\\Automation\\myEnvironmentAutoAssign.RData",sep=""))
-
-logFile = file(paste("C:\\Users\\",Sys.getenv("USERNAME"), "\\OneDrive - EFSA\\Automation\\logs\\",gsub(":", "-", Sys.time())," myEnvironmentAutoAssign.log",sep=""))
-sink(logFile, type = c("output"), append=TRUE)
-sink(logFile, type = c("message"), append=TRUE)
-
 print(paste("*** AutoAssign starting at: ", Sys.time()))
 
 #constants
@@ -17,14 +11,24 @@ absence_max = 5
 #minimum skill to be considered as candidate for assignment
 skill_min = 3
 
-source(paste("C:\\Users\\",Sys.getenv("USERNAME"), "\\OneDrive - EFSA\\Automation\\AutoAssign.R",sep=""))
+print("start batch")
+for (count in seq(32)) {
+    print(paste("start iteration ", count, sep=""))
+    load(paste("/home/docker/myEnvironmentAutoAssign.RData",sep=""))
 
-save.image(file=paste("C:\\Users\\",Sys.getenv("USERNAME"), "\\OneDrive - EFSA\\Automation\\myEnvironmentAutoAssign.RData",sep=""))
+    print(paste("*** Autoassign starting at: ", Sys.time()))
+
+    source(paste("/home/docker/AutoAssign.R",sep=""))
+
+    save.image(file=paste("/home/docker/myEnvironmentAutoAssign.RData",sep=""))
+
+    print("image saved, job completed")
+
+    Sys.sleep(900) #15 minutes intervals
+}
+print(paste("*** AutoAssign closing at: ", Sys.time()))
+
 
 print("image saved, job completed")
 
 print(paste("*** AutoAssign closing at: ", Sys.time()))
-
-#restore output to console
-sink(type="output") 
-sink(type="message")

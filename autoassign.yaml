@@ -1,9 +1,8 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: gazzettamail2
+  name: gazzettaautoassign
 spec:
   containers:
-  - name: gazzettamail2
-    image: efsadsreg.azurecr.io/mailreader04checktoken
-  restartPolicy: Never
+  - name: gazzettaautoassign
+    image: efsadsreg.azurecr.io/autoassign01
