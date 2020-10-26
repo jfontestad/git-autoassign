@@ -1,0 +1,15 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: gazzettaautoassign
+spec:
+  schedule: "*/10 * * * *"
+  concurrencyPolicy: Allow
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          restartPolicy: Never
+          containers:
+          - name: gazzettaautoassign
+            image: efsadsreg.azurecr.io/autoassign

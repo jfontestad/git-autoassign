@@ -12,8 +12,8 @@ absence_max = 5
 skill_min = 3
 
 print("start batch")
-for (count in seq(32)) {
-    print(paste("start iteration ", count, sep=""))
+#for (count in seq(32)) {
+#    print(paste("start iteration ", count, sep=""))
     load(paste("/home/docker/myEnvironmentAutoAssign.RData",sep=""))
 
     print(paste("*** Autoassign starting at: ", Sys.time()))
@@ -24,8 +24,8 @@ for (count in seq(32)) {
 
     print("image saved, job completed")
 
-    Sys.sleep(900) #15 minutes intervals
-}
+#    Sys.sleep(900) #15 minutes intervals
+#}
 print(paste("*** AutoAssign closing at: ", Sys.time()))
 
 

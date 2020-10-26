@@ -2,11 +2,8 @@
 
 ###logon and external packages
 # install package AzureGraph if not yet installed
-if (!require(AzureGraph)) install.packages('AzureGraph')
 library(AzureGraph)
-if (!require(httpuv)) install.packages('httpuv')
 library(httpuv)
-if (!require(httr)) install.packages('httr')
 library(httr)
 
 if (!exists("me")) {
@@ -14,19 +11,16 @@ if (!exists("me")) {
   me <- gr$get_user()
 }
 
-if (!require(jsonlite)) install.packages('jsonlite')
 library(jsonlite)
-if (!require(tidyverse)) install.packages('tidyverse')
-library(tidyverse)
-if (!require(bizdays)) install.packages('bizdays')
+library(readr)
+library(dplyr)
+library(purrr)
+library(stringr)
+library(tidyr)
 library(bizdays)
-if (!require(functional)) install.packages('functional')
 library(functional)
-if (!require(gtools)) install.packages('gtools')
 library(gtools)
-if (!require(stringi)) install.packages('stringi')
 library (stringi)
-if (!require(lubridate)) install.packages('lubridate')
 library(lubridate)
 
 ###configuration

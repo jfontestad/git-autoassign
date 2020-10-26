@@ -5,4 +5,4 @@ metadata:
 spec:
   containers:
   - name: gazzettaautoassign
-    image: efsadsreg.azurecr.io/autoassign01
+    image: efsadsreg.azurecr.io/autoassign
